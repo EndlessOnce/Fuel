@@ -1,0 +1,25 @@
+<div class="header-container">
+<p>Fuel Quote Form</p>
+</div>
+<div class="fuelQuote-container">
+    <form class="quoteForm">
+        <mat-form-field appearance="fill">
+            <mat-label for="gallonsRequested">Gallons Requested</mat-label>
+            <input matInput type="number" id="gallonsRequested" name="gallonsRequested" required><br>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label for="deliveryDate">Delivery Date</mat-label>
+            <input matInput type="date" id="deliveryDate" name="deliveryDate" required><br>
+        </mat-form-field>
+            <p>Delivery Address:</p>
+            <p style="font-size: small;">111 Main</p>
+            <button mat-stroked-button>Edit Address</button><br>
+            <p>Suggested Price:</p>
+            <p style="font-size: small;">TODO (from pricing module)</p>
+            
+            <p>Total Amount:</p>
+            <p style="font-size: small;">TODO (gallons * price)</p>
+            <button mat-stroked-button>Submit</button><br>
+    </form>
+</div>

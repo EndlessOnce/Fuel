@@ -1,6 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatInputModule} from '@angular/material/input';
@@ -14,7 +19,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from "@angular/common/http";
 import { SignupComponent } from './auth/signup/signup.component';
-
+import { FuelQuoteFormComponent } from './fuel-quote-form/fuel-quote-form.component';
+import { FuelQuoteHistoryComponent } from './fuel-quote-history/fuel-quote-history.component';
 // Always add in no components into the declartaions so that Angular knows what new components there are otherwise it won't read it at all
 @NgModule({
   declarations: [
@@ -23,6 +29,8 @@ import { SignupComponent } from './auth/signup/signup.component';
     LoginComponent,
     SignupComponent,
     HeaderComponent
+    FuelQuoteFormComponent,
+    FuelQuoteHistoryComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +43,9 @@ import { SignupComponent } from './auth/signup/signup.component';
     MatToolbarModule,
     MatButtonModule,
     HttpClientModule
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
