@@ -3,9 +3,7 @@ import { NgModule } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatInputModule} from '@angular/material/input';
@@ -28,7 +26,7 @@ import { FuelQuoteHistoryComponent } from './fuel-quote-history/fuel-quote-histo
     ClientProfileComponent,
     LoginComponent,
     SignupComponent,
-    HeaderComponent
+    HeaderComponent,
     FuelQuoteFormComponent,
     FuelQuoteHistoryComponent
   ],
@@ -42,7 +40,7 @@ import { FuelQuoteHistoryComponent } from './fuel-quote-history/fuel-quote-histo
     MatProgressSpinnerModule,
     MatToolbarModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,

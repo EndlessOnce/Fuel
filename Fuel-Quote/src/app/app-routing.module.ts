@@ -14,7 +14,7 @@ const routes: Routes = [
   {path: 'client-profile', component: ClientProfileComponent},
   {path: 'client-history', component: FuelQuoteHistoryComponent},
   {path: 'fuel-quote-form', component: FuelQuoteFormComponent}
-
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {enableTracing: true})],
