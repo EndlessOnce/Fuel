@@ -1,6 +1,4 @@
-<nav>
-  <a [routerLink]="['/client-profile']" routerLinkActive="router-link-active" >Client Profile</a>
-  <a [routerLink]="['/client-history']" routerLinkActive="router-link-active">Client History</a>
-  <a [routerLink]="['/fuel-quote-form']" routerLinkActive="router-link-active" >Fuel Quote Form</a>
-</nav>
-<router-outlet></router-outlet>
+<app-header></app-header>
+<main>
+ <router-outlet></router-outlet>
+</main>

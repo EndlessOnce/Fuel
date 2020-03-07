@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
 import { AppComponent } from './app.component';
 import { FuelQuoteFormComponent } from './fuel-quote-form/fuel-quote-form.component';
 import { ClientProfileComponent } from './client-profile/client-profile.component';
@@ -7,10 +9,12 @@ import { FuelQuoteHistoryComponent } from './fuel-quote-history/fuel-quote-histo
 
 
 const routes: Routes = [
+  {path: 'login', component: LoginComponent},
+  {path: 'signup', component: SignupComponent},
   {path: 'client-profile', component: ClientProfileComponent},
   {path: 'client-history', component: FuelQuoteHistoryComponent},
   {path: 'fuel-quote-form', component: FuelQuoteFormComponent}
-];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {enableTracing: true})],
