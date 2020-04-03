@@ -1,6 +1,20 @@
-const express = require('express');
-
+const express = require("express");
+const bodyParser = require("body-parser");
 const app = express();
+
+// To remove the "CORS" error when trying to access the server from the frontend.
+app.use((req, res, next) =>
+{
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Orgin, X-Requested-With, Content-Type, Accept");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PATCH, DELETE, OPTIONS");
+  next();
+});
+
 
 // 3 arguments being request, response, next
 app.use((req, res, next) =>
