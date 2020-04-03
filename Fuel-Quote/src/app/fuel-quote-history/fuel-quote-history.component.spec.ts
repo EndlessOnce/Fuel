@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FuelQuoteHistoryComponent } from './fuel-quote-history.component';
+import { FuelQuoteFormComponent } from '../fuel-quote-form/fuel-quote-form.component';
 
 describe('FuelQuoteHistoryComponent', () => {
   let component: FuelQuoteHistoryComponent;

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Client} from '../client'
+import {Client} from './client'
 @Component(
   {
     // Allows us to use the component
