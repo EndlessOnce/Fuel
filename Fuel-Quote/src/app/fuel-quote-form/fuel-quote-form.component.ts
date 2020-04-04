@@ -13,7 +13,7 @@ export class FuelQuoteFormComponent {
 
   address = ["111 Main"];
 
-  quoteModel = new QuoteForm(0, new Date() , this.address[0], 5, 0);
+  quoteModel = new QuoteForm(0, new Date() , this.address[0], 5);
 
   constructor(private _fuelQuoteService: FuelQuoteService) {
 

@@ -4,6 +4,6 @@ export class QuoteForm {
         public delivery: Date,
         public address: string,
         public price: number,
-        public total: number,
+        //public total: number,
     ) {}
 }

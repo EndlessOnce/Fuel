@@ -22,7 +22,7 @@
             <input type = "number" #num2 class = "form-control" id = "price" name = "price" [(ngModel)]="quoteModel.price" required>
         </div>
         <br>
-        <h2>Total Amount: $<span id = "total" name = "total" [(ngModel)]="quoteModel.total">{{num1.value * num2.value}}</span>.00</h2>
+        <h2>Total Amount: $<span id = "total" name = "total" >{{num1.value * num2.value}}</span>.00</h2>
         <br>
             <button mat-stroked-button class="button" type="submit">Submit</button><br>
     </form>
