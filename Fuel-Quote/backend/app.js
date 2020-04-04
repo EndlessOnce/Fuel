@@ -1,13 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const User = require("../model/user");
 const app = express();
 
 const userRoutes = require("./routes/user");
 
 
-mongoose.connect("mongodb+srv://John:R85jIjMquwLHTFec@cluster0-rcvxj.mongodb.net/fuel-quote?")
+mongoose.connect("mongodb+srv://John:R85jIjMquwLHTFec@cluster0-rcvxj.mongodb.net/test?retryWrites=true&w=majority")
 .then(() =>
 {
   console.log('Connect to database!');
@@ -19,15 +18,16 @@ mongoose.connect("mongodb+srv://John:R85jIjMquwLHTFec@cluster0-rcvxj.mongodb.net
 
 app.use(bodyParser.json());
 // To remove the "CORS" error when trying to access the server from the frontend.
-app.use((req, res, next) =>
-{
+app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Headers",
-    "Orgin, X-Requested-With, Content-Type, Accept");
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
   res.setHeader(
     "Access-Control-Allow-Methods",
-    "GET, POST, PATCH, DELETE, OPTIONS");
+    "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+  );
   next();
 });
 
