@@ -1,21 +1,23 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const User = require("./models/user");
+const User = require("../model/user");
 const app = express();
 
-app.use(bodyParser.json());
+const userRoutes = require("./routes/user");
 
-mongoose.connect("mongodb+srv://John:R85jIjMquwLHTFec@cluster0-rcvxj.mongodb.net/fuel-quote?retryWrites=true&w=majority")
+
+mongoose.connect("mongodb+srv://John:R85jIjMquwLHTFec@cluster0-rcvxj.mongodb.net/fuel-quote?")
 .then(() =>
-  {
-    console.log('Connect to database!');
-  })
-  .catch(() =>
-  {
-    console.log('Connection failed!');
-  });
+{
+  console.log('Connect to database!');
+})
+.catch(() =>
+{
+  console.log('Connection failed!');
+});
 
+app.use(bodyParser.json());
 // To remove the "CORS" error when trying to access the server from the frontend.
 app.use((req, res, next) =>
 {
@@ -31,16 +33,19 @@ app.use((req, res, next) =>
 
 
 // 3 arguments being request, response, next
-app.use((req, res, next) =>
-{
-  console.log('First middleware');
-  // call next when you're sending a response
-  next();
-});
+// app.use((req, res, next) =>
+// {
+//   console.log('First middleware');
+//   // call next when you're sending a response
+//   next();
+// });
 
-app.use((req, res, next) =>
-{
-  res.send('Hello from express!');
-});
+// app.use((req, res, next) =>
+// {
+//   res.send('Hello from express!');
+// });
+
+app.use("/api/user", userRoutes);
+
 
 module.exports = app;
