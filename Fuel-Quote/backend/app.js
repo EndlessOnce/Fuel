@@ -1,6 +1,20 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+const User = require("./models/user");
 const app = express();
+
+app.use(bodyParser.json());
+
+mongoose.connect("mongodb+srv://John:R85jIjMquwLHTFec@cluster0-rcvxj.mongodb.net/fuel-quote?retryWrites=true&w=majority")
+.then(() =>
+  {
+    console.log('Connect to database!');
+  })
+  .catch(() =>
+  {
+    console.log('Connection failed!');
+  });
 
 // To remove the "CORS" error when trying to access the server from the frontend.
 app.use((req, res, next) =>
