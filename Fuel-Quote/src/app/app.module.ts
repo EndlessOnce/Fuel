@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatInputModule} from '@angular/material/input';
@@ -15,7 +15,7 @@ import { ClientProfileComponent } from './client-profile/client-profile.componen
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './auth/login/login.component';
 import { HeaderComponent } from './header/header.component';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HttpClient } from "@angular/common/http";
 import { SignupComponent } from './auth/signup/signup.component';
 import { FuelQuoteFormComponent } from './fuel-quote-form/fuel-quote-form.component';
 import { FuelQuoteHistoryComponent } from './fuel-quote-history/fuel-quote-history.component';
@@ -44,6 +44,7 @@ import { FuelQuoteHistoryComponent } from './fuel-quote-history/fuel-quote-histo
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

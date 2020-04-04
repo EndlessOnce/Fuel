@@ -2,24 +2,28 @@
 <p>Fuel Quote Form</p>
 </div>
 <div class="fuelQuote-container">
-    <form class="quoteForm">
-        <mat-form-field appearance="fill">
-            <mat-label for="gallonsRequested">Gallons Requested</mat-label>
-            <input matInput type="number" id="gallonsRequested" name="gallonsRequested" required><br>
-        </mat-form-field>
+    <form #quoteForm="ngForm" class="quoteForm" (ngSubmit)="onSubmit()" novalidate>
+
+        <div class="form-group">
+          <label for= "gallons">Gallons Requested</label>
+          <input type = "number" #num1 class = "form-control" id = "gallons" name="gallons" [(ngModel)]="quoteModel.gallons" required>
+        </div>
+        <div class="form-group">
+            <label for= "delivery">Delivery Date</label>
+            <input type = "date" class = "form-control" id = "delivery" name = "delivery" [(ngModel)]="quoteModel.delivery" required>
+        </div>
+        <div class="form-group">
+            <select class="form-control" name = "address" [(ngModel)]="quoteModel.address">
+                    <option *ngFor="let topic of address" [value]="topic">{{ topic }}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for= "price">Suggested Price</label>
+            <input type = "number" #num2 class = "form-control" id = "price" name = "price" [(ngModel)]="quoteModel.price" required>
+        </div>
         <br>
-        <mat-form-field appearance="fill">
-            <mat-label for="deliveryDate">Delivery Date</mat-label>
-            <input matInput type="date" id="deliveryDate" name="deliveryDate" required><br>
-        </mat-form-field>
-            <p>Delivery Address:</p>
-            <p style="font-size: small;">111 Main</p>
-            <button mat-stroked-button>Edit Address</button><br>
-            <p>Suggested Price:</p>
-            <p style="font-size: small;">TODO (from pricing module)</p>
-            
-            <p>Total Amount:</p>
-            <p style="font-size: small;">TODO (gallons * price)</p>
-            <button mat-stroked-button>Submit</button><br>
+        <h2>Total Amount: $<span id = "total" name = "total" [(ngModel)]="quoteModel.total">{{num1.value * num2.value}}</span>.00</h2>
+        <br>
+            <button mat-stroked-button class="button" type="submit">Submit</button><br>
     </form>
 </div>

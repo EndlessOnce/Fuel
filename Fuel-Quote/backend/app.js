@@ -2,6 +2,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 
+const port = 3000;
+
+app.use(bodyParser.json());
+
 // To remove the "CORS" error when trying to access the server from the frontend.
 app.use((req, res, next) =>
 {
@@ -24,9 +28,19 @@ app.use((req, res, next) =>
   next();
 });
 
-app.use((req, res, next) =>
+app.get('/', function(req, res)
 {
   res.send('Hello from express!');
+});
+
+app.post ('/fuel-quote-form', function(req, res) {
+  console.log(req.body);
+  res.status(200).send({"message": "Data received"})
+})
+
+app.listen(port, () => 
+{
+  console.log(`Example app listening at http://localhost:${port}`);
 });
 
 module.exports = app;
