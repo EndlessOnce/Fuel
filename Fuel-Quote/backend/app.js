@@ -45,14 +45,15 @@ app.use((req, res, next) => {
 // });
 
 app.use("/api/user", userRoutes);
-app.post ('/fuel-quote-form', function(req, res) {
-  console.log(req.body);
-  res.status(200).send({"message": "Data received"})
-})
-app.listen(port, () => 
 
-{
-  console.log(`Example app listening at http://localhost:${port}`);
+// app.post ('/fuel-quote-form', function(req, res) {
+//   console.log(req.body);
+//   res.status(200).send({"message": "Data received"})
+// })
+// app.listen(port, () => 
 
-});
+// {
+//   console.log(`Example app listening at http://localhost:${port}`);
+
+// });
 module.exports = app;
