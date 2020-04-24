@@ -15,11 +15,11 @@
             <div class="form-group">
                 <label for= "delivery">Address</label>
                 <select class="form-control" name = "address" [(ngModel)]="quoteModel.address" required>
-                        <option *ngFor="let topic of address" [value]="topic">{{ topic }}</option>
+                        <option *ngFor="let topic of userAddress" [value]="topic">{{ topic }}</option>
                 </select>
             </div>
             <br>
-            <button mat-stroked-button class="button" type="button" name = "getPrice" id = "getPrice" (click)="priceModule()" [disabled] = "quoteForm.form.untouched" required>Get Price</button><br>
+            <button mat-stroked-button class="button" type="button" name = "getPrice" id = "getPrice" (click)="priceModule()" [disabled] = "quoteForm.form.invalid" required>Get Price</button><br>
             <br>
             <div class="form-group">
                 <label for= "price">Suggested Price</label>

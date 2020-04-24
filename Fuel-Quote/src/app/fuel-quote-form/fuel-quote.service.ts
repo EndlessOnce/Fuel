@@ -8,8 +8,10 @@ import { Form } from './fuel-quote.model';
 })
 export class FuelQuoteService {
 
+  private address: string[] = [];
 
   constructor(private _http: HttpClient) { }
+
 
   quote(email: string, gallons: number, delivery: Date, address: string, price: string, total: string) {
     const form: Form = {email: email, gallons: gallons, delivery: delivery, address: address, price: price, total: total};
