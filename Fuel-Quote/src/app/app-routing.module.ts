@@ -4,9 +4,9 @@ import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { AppComponent } from './app.component';
 import { FuelQuoteFormComponent } from './fuel-quote-form/fuel-quote-form.component';
-import { ClientProfileComponent } from './client-profile/client-profile.component';
 import { FuelQuoteHistoryComponent } from './fuel-quote-history/fuel-quote-history.component';
 import { AuthGuard } from './auth/auth.guard';
+import { ClientProfileComponent } from './client-profile/client-profile.component';
 
 
 const routes: Routes = [

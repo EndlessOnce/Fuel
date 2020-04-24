@@ -19,7 +19,7 @@ export class FuelQuoteFormComponent {
 
   ngOnInit(): void {
   }
-  
+
 
   submitted = false;
 
@@ -57,6 +57,6 @@ export class FuelQuoteFormComponent {
     (<HTMLInputElement>document.getElementById('price')).value = suggestedPrice.toString();
     (<HTMLInputElement>document.getElementById('total')).value = total.toString();
     (<HTMLInputElement>document.getElementById("submit")).disabled = false;
-    
+
   }
 }

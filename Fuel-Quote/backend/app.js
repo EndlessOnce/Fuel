@@ -5,8 +5,7 @@ const app = express();
 
 const userRoutes = require("./routes/user");
 const quoteRoutes = require("./routes/quote");
-
-const clientProfile = require("./routes/clientProfile");
+const clientRoutes = require("./routes/client");
 
 
 mongoose.connect("mongodb+srv://John:R85jIjMquwLHTFec@cluster0-rcvxj.mongodb.net/fuel-quote?retryWrites=true&w=majority")
@@ -50,8 +49,7 @@ app.use((req, res, next) => {
 
 app.use("/api/user", userRoutes);
 app.use("/api/quote", quoteRoutes);
-
-app.use("/api/client-profile", client-profile);
+app.use("/api/client", clientRoutes);
 
 
 module.exports = app;
