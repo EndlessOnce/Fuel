@@ -11,6 +11,7 @@ export class AuthService {
   private token: string;
   private tokenTimer: any;
   private authStatusListener = new Subject<boolean>();
+  private userEmail: string;
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -29,6 +30,10 @@ export class AuthService {
     return this.authStatusListener.asObservable();
   }
 
+  getEmail()
+  {
+    return this.userEmail;
+  }
 
   createUser(email: string, password: string) {
     const authData: AuthData = {email: email, password: password};
@@ -45,6 +50,7 @@ export class AuthService {
     .subscribe(response => {
       const token = response.token;
       this.token = token;
+      this.userEmail = authData.email;
       if (token)
       {
         const expiresInDuration = response.expiresIn;

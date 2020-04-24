@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { QuoteForm } from './fuel-quote';
 import { FuelQuoteService } from './fuel-quote.service';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-fuel-quote-form',
@@ -14,9 +15,7 @@ export class FuelQuoteFormComponent {
 
   quoteModel = new QuoteForm(null, new Date() , this.address[0], null, null);
 
-  constructor(private _fuelQuoteService: FuelQuoteService) {
-
-  }
+  constructor(private _fuelQuoteService: FuelQuoteService, private authService: AuthService) {}
 
   ngOnInit(): void {
   }
@@ -25,11 +24,12 @@ export class FuelQuoteFormComponent {
   submitted = false;
 
   onSubmit() {
+    var email = this.authService.getEmail();
     var price = (<HTMLInputElement>document.getElementById('price')).value;
     var total = (<HTMLInputElement>document.getElementById('total')).value;
     console.log(this.quoteModel.price);
     console.log(this.quoteModel.total);
-    this._fuelQuoteService.quote("test", this.quoteModel.gallons, this.quoteModel.delivery, this.quoteModel.address, price, total);
+    this._fuelQuoteService.quote(email, this.quoteModel.gallons, this.quoteModel.delivery, this.quoteModel.address, price, total);
 
   }
 

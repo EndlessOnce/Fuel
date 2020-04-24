@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const quoteSchema = mongoose.Schema({
-    email: {type: String, required: true},
+    email: {type: String},
     gallons: {type: Number, required: true},
     delivery: {type: Date, required: true},
     address: {type: String, required: true},
