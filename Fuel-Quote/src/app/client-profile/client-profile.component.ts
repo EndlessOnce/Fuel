@@ -34,7 +34,7 @@ export class ClientProfileComponent
   onSubmit() {
     this.submitted = true;
     console.log(this.model);
-    this.clientService.client(name, this.model.address, this.model.city, this.model.state, this.model.zipcode, this.model.addressAlt);
+    this.clientService.client(this.model.name, this.model.address, this.model.city, this.model.state, this.model.zipcode, this.model.addressAlt);
     this.newClient();
 
    }
