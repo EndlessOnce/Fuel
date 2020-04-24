@@ -14,12 +14,18 @@ export class SignupComponent {
 
   }
 
+  completed()
+  {
+    alert("Registraion Completed");
+
+  }
 
   onSignup(form: NgForm) {
     if (form.invalid)
     {
       return;
     }
+    this.completed();
     this.authService.createUser(form.value.email, form.value.password);
   }
 }
