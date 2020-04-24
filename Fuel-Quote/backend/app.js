@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const app = express();
 
 const userRoutes = require("./routes/user");
+const clientProfile = require("./routes/clientProfile");
 
 
 mongoose.connect("mongodb+srv://John:R85jIjMquwLHTFec@cluster0-rcvxj.mongodb.net/fuel-quote?retryWrites=true&w=majority")
@@ -46,6 +47,7 @@ app.use((req, res, next) => {
 // });
 
 app.use("/api/user", userRoutes);
+app.use("/api/client-profile", client-profile);
 
 
 module.exports = app;
