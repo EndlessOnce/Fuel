@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Client } from './client'
 import { NgForm } from '@angular/forms';
 import { ClientService } from './client.service';
+import { AuthService } from '../auth/auth.service';
 @Component(
   {
     // Allows us to use the component
@@ -14,7 +15,7 @@ import { ClientService } from './client.service';
 
 export class ClientProfileComponent
 {
-  constructor(private clientService: ClientService){ }
+  constructor(public clientService: ClientService, public authService: AuthService){ }
 
   ngOnInit(): void {
   }
@@ -33,8 +34,10 @@ export class ClientProfileComponent
   }
   onSubmit() {
     this.submitted = true;
+    var email = this.authService.getEmail()
     console.log(this.model);
-    this.clientService.client(this.model.name, this.model.address, this.model.city, this.model.state, this.model.zipcode, this.model.addressAlt);
+
+    this.clientService.client(email, this.model.name, this.model.address, this.model.city, this.model.state, this.model.zipcode, this.model.addressAlt);
     this.newClient();
 
    }

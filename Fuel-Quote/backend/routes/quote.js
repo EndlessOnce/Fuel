@@ -23,7 +23,7 @@ router.post("/quoteForm", (req, res, next) => {
 });
 
 router.post("/setHistory", (req, res, next) => {
-  
+
     Quote.findOne({ email: req.body.email }).then(documents => {
       res.status(200).json({
         email: documents.email

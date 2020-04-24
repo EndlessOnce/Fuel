@@ -1,4 +1,5 @@
 export interface ClientModel {
+  email: string;
   name: string;
   address: string;
   city: string;

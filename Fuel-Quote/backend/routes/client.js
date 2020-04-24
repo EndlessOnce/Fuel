@@ -4,6 +4,7 @@ const router = express.Router();
 
 router.post("/clientForm", (req, res, next) => {
   const clientProfile = new ClientProfile({
+    email: req.body.email,
     name: req.body.name,
     address: req.body.address,
     city: req.body.city,

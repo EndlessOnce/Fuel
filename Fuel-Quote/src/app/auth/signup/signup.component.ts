@@ -16,7 +16,7 @@ export class SignupComponent {
 
   completed()
   {
-    alert("Registraion Completed");
+    alert("Registration Completed");
 
   }
 
