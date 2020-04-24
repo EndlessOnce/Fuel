@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const app = express();
 
 const userRoutes = require("./routes/user");
+
 const clientProfile = require("./routes/clientProfile");
 
 
@@ -47,6 +48,7 @@ app.use((req, res, next) => {
 // });
 
 app.use("/api/user", userRoutes);
+
 app.use("/api/client-profile", client-profile);
 
 
