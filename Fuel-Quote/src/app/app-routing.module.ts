@@ -6,18 +6,20 @@ import { AppComponent } from './app.component';
 import { FuelQuoteFormComponent } from './fuel-quote-form/fuel-quote-form.component';
 import { ClientProfileComponent } from './client-profile/client-profile.component';
 import { FuelQuoteHistoryComponent } from './fuel-quote-history/fuel-quote-history.component';
+import { AuthGuard } from './auth/auth.guard';
 
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
-  {path: 'client-profile', component: ClientProfileComponent},
-  {path: 'client-history', component: FuelQuoteHistoryComponent},
-  {path: 'fuel-quote-form', component: FuelQuoteFormComponent}
+  {path: 'client-profile', component: ClientProfileComponent, canActivate: [AuthGuard]},
+  {path: 'client-history', component: FuelQuoteHistoryComponent, canActivate: [AuthGuard]},
+  {path: 'fuel-quote-form', component: FuelQuoteFormComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {enableTracing: true})],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }
