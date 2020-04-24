@@ -6,7 +6,7 @@ const app = express();
 const userRoutes = require("./routes/user");
 
 
-mongoose.connect("mongodb+srv://John:R85jIjMquwLHTFec@cluster0-rcvxj.mongodb.net/test?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://John:R85jIjMquwLHTFec@cluster0-rcvxj.mongodb.net/fuel-quote?retryWrites=true&w=majority")
 .then(() =>
 {
   console.log('Connect to database!');

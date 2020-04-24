@@ -8,19 +8,24 @@ import { AuthService } from '../auth.service';
 })
 export class SignupComponent {
   isLoading = false;
-
+  public showMyMessage = false;
   constructor(public authService: AuthService)
   {
 
   }
 
+  showMyMessageSoon()
+  {
+    setTimeout(() => {
+      this.showMyMessage = true
+    }, 3000)
+  }
 
   onSignup(form: NgForm) {
     if (form.invalid)
     {
       return;
     }
-    this.isLoading = true;
     this.authService.createUser(form.value.email, form.value.password);
   }
 }
