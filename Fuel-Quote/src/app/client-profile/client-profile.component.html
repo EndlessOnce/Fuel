@@ -1,6 +1,6 @@
 <div class = "container">
     <h1> Profile Completion</h1>
-    <form #clientForm="ngForm">
+    <form (submit)="onSubmit(clientForm)" #clientForm="ngForm">
       <div class="form-group">
         <label for= "name">Full Name</label>
         <input type = "text" class = "form-control" id = "name"
@@ -45,6 +45,6 @@
     [(ngModel)] = "model.zipcode" name = "zipcode">
 
 </div>
-<button mat-raised-button color="accent" class="btn btn-default" (click)="newClient()">Complete Registration</button>
+<button mat-raised-button color="accent" type="submit" >Complete Registration</button>
     </form>
     </div>
