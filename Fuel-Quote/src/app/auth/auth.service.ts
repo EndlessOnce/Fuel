@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Form } from "src/app/fuel-quote-form/fuel-quote.model";
 import { AuthData } from "./auth-data.model";
+import { ClientModel } from 'src/app/client-profile/client.model';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -42,8 +43,8 @@ export class AuthService {
   setState()
   {
 
-    const authData: AuthData = {email: this.userEmail, password: this.userPass};
-    this.http.post<{state: string}>("http://localhost:3000/api/user/setState", authData)
+    const clientModel: ClientModel = {email: this.userEmail, name: "0", address: "0", city: "0", state: "0", zipcode: "0", addressAlt: "0"};
+    this.http.post<{state: string}>("http://localhost:3000/api/client/setState", clientModel)
     .subscribe(response => {
       this.userState = response.state;
     });
@@ -75,8 +76,8 @@ export class AuthService {
   }
 
   setAddress() {
-    const authData: AuthData = {email: this.userEmail, password: this.userPass};
-    this.http.post<{address1: string, address2: string}>("http://localhost:3000/api/user/setAddress", authData)
+    const clientModel: ClientModel = {email: this.userEmail, name: "0", address: "0", city: "0", state: "0", zipcode: "0", addressAlt: "0"};
+    this.http.post<{address1: string, address2: string}>("http://localhost:3000/api/client/setAddress", clientModel)
     .subscribe(response => {
       this.userAddress = [response.address1, response.address2];
     });

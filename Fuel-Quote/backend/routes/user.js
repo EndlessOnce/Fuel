@@ -65,22 +65,4 @@ router.post("/login", (req, res, next) => {
     });
 });
 
-router.post("/setState", (req, res, next) => {
-  
-  User.findOne({ email: req.body.email }).then(documents => {
-    res.status(200).json({
-      state: documents.state
-    });
-  });
-});
-
-router.post("/setAddress", (req, res, next) => {
-  User.findOne({ email: req.body.email }).then(documents => {
-    res.status(200).json({
-      address1: documents.address1,
-      address2: documents.address2
-    });
-  });
-});
-
 module.exports = router;

@@ -18,4 +18,22 @@ router.post("/clientForm", (req, res, next) => {
     message: 'Form Completed.'
   });
 });
+
+router.post("/setState", (req, res, next) => {
+  
+  ClientProfile.findOne({ email: req.body.email }).then(documents => {
+    res.status(200).json({
+      state: documents.state
+    });
+  });
+});
+
+router.post("/setAddress", (req, res, next) => {
+  ClientProfile.findOne({ email: req.body.email }).then(documents => {
+    res.status(200).json({
+      address1: documents.address,
+      address2: documents.addressAlt
+    });
+  });
+});
 module.exports = router;
