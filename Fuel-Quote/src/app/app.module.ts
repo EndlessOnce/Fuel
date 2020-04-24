@@ -15,10 +15,11 @@ import { ClientProfileComponent } from './client-profile/client-profile.componen
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './auth/login/login.component';
 import { HeaderComponent } from './header/header.component';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { SignupComponent } from './auth/signup/signup.component';
 import { FuelQuoteFormComponent } from './fuel-quote-form/fuel-quote-form.component';
 import { FuelQuoteHistoryComponent } from './fuel-quote-history/fuel-quote-history.component';
+import { AuthIncerceptor } from './auth/auth-interceptor';
 // Always add in no components into the declartaions so that Angular knows what new components there are otherwise it won't read it at all
 @NgModule({
   declarations: [
@@ -45,7 +46,9 @@ import { FuelQuoteHistoryComponent } from './fuel-quote-history/fuel-quote-histo
     MatDatepickerModule,
     MatNativeDateModule,
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS, useClass: AuthIncerceptor, multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
