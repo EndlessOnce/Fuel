@@ -12,11 +12,7 @@ router.post("/clientForm", (req, res, next) => {
     addressAlt: req.body.addressAlt,
   });
   clientProfile.save()
-  .then(client =>
-  {
-    res.send("Form completed");
-  })
-  console.loge(clientProfile);
+  console.log(clientProfile);
   res.status(201).json({
     message: 'Form Completed.'
   });
