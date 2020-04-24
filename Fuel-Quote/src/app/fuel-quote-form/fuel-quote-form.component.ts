@@ -11,15 +11,19 @@ import { AuthService } from 'src/app/auth/auth.service';
 
 
 export class FuelQuoteFormComponent {
-  address = ["111 Main"];
-
-  quoteModel = new QuoteForm(null, new Date() , this.address[0], null, null);
 
   constructor(private _fuelQuoteService: FuelQuoteService, private authService: AuthService) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.authService.setAddress();
   }
+  
+  userAddress: string[] = this.authService.getAddress();
 
+  quoteModel = new QuoteForm(null, null , null, null, null);
+
+  
+  
 
   submitted = false;
 
@@ -27,10 +31,8 @@ export class FuelQuoteFormComponent {
     var email = this.authService.getEmail();
     var price = (<HTMLInputElement>document.getElementById('price')).value;
     var total = (<HTMLInputElement>document.getElementById('total')).value;
-    console.log(this.quoteModel.price);
-    console.log(this.quoteModel.total);
     this._fuelQuoteService.quote(email, this.quoteModel.gallons, this.quoteModel.delivery, this.quoteModel.address, price, total);
-
+    window.location.reload();
   }
 
   priceModule() {
@@ -43,15 +45,24 @@ export class FuelQuoteFormComponent {
         gallonsReq = 0.02;
     }
     var date = new Date((<HTMLInputElement>document.getElementById('delivery')).value);
-    var summer;
-    if (date <= new Date('09/22/2020') && date >= new Date('06/20/2020')) {
+    date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+    console.log(date.getMonth());
+    console.log(date.getDate());
+    var summer = 0.03;
+    if (date.getMonth() <= 8 && date.getDate() <= 22) {
+      if (date.getMonth() >= 5 && date.getDate() >= 20) {
         summer = 0.04;
+      }
     }
-    else {
-        summer = 0.03;
+    var history = 0;
+    if (this.authService.getHistory()) {
+      history = 0.01;
     }
-    var history = 0.01;
-    var location = 0.02;
+    var state = this.authService.getState();
+    var location = 0.04;
+    if (state == "TX") {
+      location = 0.02;
+    }
     var suggestedPrice = 1.50 + (location - history + gallonsReq + 0.1 + summer) * 1.50;
     var total = gallons * suggestedPrice;
     (<HTMLInputElement>document.getElementById('price')).value = suggestedPrice.toString();

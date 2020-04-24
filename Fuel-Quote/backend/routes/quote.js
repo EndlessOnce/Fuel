@@ -13,7 +13,7 @@ router.post("/quoteForm", (req, res, next) => {
         delivery: req.body.delivery,
         address: req.body.address,
         price: req.body.price,
-        total: req.body.total,
+        total: req.body.total
     });
     quote.save();
     console.log(quote);
@@ -21,4 +21,13 @@ router.post("/quoteForm", (req, res, next) => {
         message: 'Quote Added Successfully'
     });
 });
+
+router.post("/setHistory", (req, res, next) => {
+  
+    Quote.findOne({ email: req.body.email }).then(documents => {
+      res.status(200).json({
+        email: documents.email
+      });
+    });
+  });
 module.exports = router;
