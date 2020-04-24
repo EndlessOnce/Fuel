@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Client } from './client'
+import { NgForm } from '@angular/forms';
+import { ClientService } from './client.service';
 @Component(
   {
     // Allows us to use the component
@@ -12,7 +14,7 @@ import { Client } from './client'
 
 export class ClientProfileComponent
 {
-  constructor() { }
+  constructor(private clientService: ClientService){ }
 
   ngOnInit(): void {
   }
@@ -24,10 +26,30 @@ export class ClientProfileComponent
 
   submitted = false;
 
-  onSubmit() { this.submitted = true; }
+  newClient()
+  {
+      alert("Success");
+      this.model = new Client(null,null,null,null,null);
+  }
+  onSubmit() {
+    this.submitted = true;
+    console.log(this.model);
+
+    this.newClient();
+
+   }
+  // onSubmit(form: NgForm)
+  // {
+  //   console.log(form.value);
+    // if(form.invalid)
+    // {
+    //   return;
+    // }
+    // this.clientService.client(form.value.name, form.value.address, form.value.city, form.value.state, form.value.zipcode, form.value.addressAlt);
+  }
 
   // TODO: Remove this when we're done
-  get diagnostic() { return JSON.stringify(this.model); }
+  // get diagnostic() { return JSON.stringify(this.model); }
 
 
-}
+// }

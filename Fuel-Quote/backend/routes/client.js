@@ -2,7 +2,7 @@ const express = require("express");
 const ClientProfile = require("../model/client");
 const router = express.Router();
 
-router.post("/clientProfile", (req, res, next) => {
+router.post("/clientForm", (req, res, next) => {
   const clientProfile = new ClientProfile({
     name: req.body.name,
     address: req.body.address,
@@ -11,7 +11,11 @@ router.post("/clientProfile", (req, res, next) => {
     zipcode: req.body.zipcode,
     addressAlt: req.body.addressAlt,
   });
-  clientProfile.save();
+  clientProfile.save()
+  .then(client =>
+  {
+    res.send("Form completed");
+  })
   console.loge(clientProfile);
   res.status(201).json({
     message: 'Form Completed.'
