@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "nodemon testServer.js",
     "build": "ng build",
     "test": "ng test",
     "tests": "mocha",
@@ -27,6 +27,7 @@
     "bcrpyt": "^2.0.0",
     "bcrypt": "^4.0.1",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "jquery": "^3.5.0",
     "jsonwebtoken": "^8.5.1",

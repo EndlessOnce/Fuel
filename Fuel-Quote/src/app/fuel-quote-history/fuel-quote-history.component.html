@@ -1,32 +1,42 @@
-<h1>Client Name</h1>
-<table>
-    <caption>Fuel Quote</caption>
-    <thead>
-        <tr>
-            <th scope="col">Gallons</th>
-            <th scope="col">Order Date</th>
-            <th scope="col">Delivery Address</th>
-            <th scope="col">Delivery Date</th>
-            <th scope="col">Suggested Price</th>
-            <th scope="col">Total Amount</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="gallons">12</td>
-            <td class="orderDate">03/02/2020</td>
-            <td class="deliveryAddress">111 Main</td>
-            <td class="deliveryDate">03/20/2020</td>
-            <td class="price">$2.00</td>
-            <td class="total">$24.00</td>
-        </tr>
-        <tr>
-            <td class="gallons">17</td>
-            <td class="orderDate">03/06/2020</td>
-            <td class="deliveryAddress">111 Main</td>
-            <td class="deliveryDate">03/25/2020</td>
-            <td class="price">$2.00</td>
-            <td class="total">$34.00</td>
-        </tr>
-    </tbody>
-</table>
+<table mat-table  [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="gallons">
+      <th mat-header-cell *matHeaderCellDef> Gallons </th>
+      <td mat-cell *matCellDef="let element"> {{element.gallons}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="orderdate">
+      <th mat-header-cell *matHeaderCellDef> Order Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.orderdate}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="deladdress">
+      <th mat-header-cell *matHeaderCellDef> Delivery Address </th>
+      <td mat-cell *matCellDef="let element"> {{element.deladdress}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="deldate">
+      <th mat-header-cell *matHeaderCellDef> Delivery Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.deldate}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="suggestedprice">
+        <th mat-header-cell *matHeaderCellDef> Suggested Price </th>
+        <td mat-cell *matCellDef="let element"> {{element.suggestedprice}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="totalammount">
+        <th mat-header-cell *matHeaderCellDef> Total Ammount </th>
+        <td mat-cell *matCellDef="let element"> {{element.totalammount}} </td>
+      </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
