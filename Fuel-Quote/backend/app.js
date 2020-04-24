@@ -4,8 +4,9 @@ const mongoose = require("mongoose");
 const app = express();
 
 const userRoutes = require("./routes/user");
+const quoteRoutes = require("./routes/quote");
 
-mongoose.connect("mongodb+srv://John:R85jIjMquwLHTFec@cluster0-rcvxj.mongodb.net/test?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://Kevin:ZxnYgnrhEQ3kkcIQ@cluster0-rcvxj.mongodb.net/fuel-quote?retryWrites=true&w=majority")
 .then(() =>
 {
   console.log('Connect to database!');
@@ -45,6 +46,7 @@ app.use((req, res, next) => {
 // });
 
 app.use("/api/user", userRoutes);
+app.use("/api/quote", quoteRoutes);
 
 // app.post ('/fuel-quote-form', function(req, res) {
 //   console.log(req.body);

@@ -1,17 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { QuoteForm } from './fuel-quote';
+import { Form } from './fuel-quote.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FuelQuoteService {
 
-  _url = 'http://localhost:3000/fuel-quote-form'
 
   constructor(private _http: HttpClient) { }
 
-  quote(user: QuoteForm) {
-    return this._http.post<any>(this._url, user);
+  quote(email: string, gallons: number, delivery: Date, address: string, price: string, total: string) {
+    const form: Form = {email: email, gallons: gallons, delivery: delivery, address: address, price: price, total: total};
+    this._http.post("http://localhost:3000/api/quote/quoteForm", form)
+    .subscribe(response => {
+      console.log(response);
+    });
   }
 }

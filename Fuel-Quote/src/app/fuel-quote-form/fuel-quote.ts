@@ -3,7 +3,7 @@ export class QuoteForm {
         public gallons: number,
         public delivery: Date,
         public address: string,
-        public price: number,
-        //public total: number,
+        public price: string,
+        public total: string,
     ) {}
 }
