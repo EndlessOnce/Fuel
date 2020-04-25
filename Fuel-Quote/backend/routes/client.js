@@ -4,6 +4,7 @@ const router = express.Router();
 
 router.post("/clientForm", (req, res, next) => {
   const clientProfile = new ClientProfile({
+    email: req.body.email,
     name: req.body.name,
     address: req.body.address,
     city: req.body.city,
@@ -15,6 +16,24 @@ router.post("/clientForm", (req, res, next) => {
   console.log(clientProfile);
   res.status(201).json({
     message: 'Form Completed.'
+  });
+});
+
+router.post("/setState", (req, res, next) => {
+  
+  ClientProfile.findOne({ email: req.body.email }).then(documents => {
+    res.status(200).json({
+      state: documents.state
+    });
+  });
+});
+
+router.post("/setAddress", (req, res, next) => {
+  ClientProfile.findOne({ email: req.body.email }).then(documents => {
+    res.status(200).json({
+      address1: documents.address,
+      address2: documents.addressAlt
+    });
   });
 });
 module.exports = router;

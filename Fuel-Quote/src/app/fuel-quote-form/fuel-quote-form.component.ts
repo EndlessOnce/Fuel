@@ -46,11 +46,11 @@ export class FuelQuoteFormComponent {
     }
     var date = new Date((<HTMLInputElement>document.getElementById('delivery')).value);
     date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
-    console.log(date.getMonth());
-    console.log(date.getDate());
     var summer = 0.03;
-    if (date.getMonth() <= 8 && date.getDate() <= 22) {
-      if (date.getMonth() >= 5 && date.getDate() >= 20) {
+    if (date.getMonth() < 8 || (date.getMonth() == 8 && date.getDate() <= 22)) {
+      console.log("hi");
+      if (date.getMonth() > 5 || (date.getMonth() == 5 && date.getDate() >= 20)) {
+        console.log("hi");
         summer = 0.04;
       }
     }
@@ -63,6 +63,10 @@ export class FuelQuoteFormComponent {
     if (state == "TX") {
       location = 0.02;
     }
+    console.log(location);
+    console.log(history);
+    console.log(gallonsReq);
+    console.log(summer);
     var suggestedPrice = 1.50 + (location - history + gallonsReq + 0.1 + summer) * 1.50;
     var total = gallons * suggestedPrice;
     (<HTMLInputElement>document.getElementById('price')).value = suggestedPrice.toString();
