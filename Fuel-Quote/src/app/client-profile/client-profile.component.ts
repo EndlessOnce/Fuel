@@ -17,8 +17,18 @@ export class ClientProfileComponent
 {
   constructor(public clientService: ClientService, public authService: AuthService){ }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.authService.setAddress();
+    this.authService.setCity();
+    this.authService.setName();
+    this.authService.setAddress();
   }
+  userAddress = this.authService.getAddress();
+  userCity = this.authService.getCity();
+  userName = this.authService.getName();
+  userZipcode = this.authService.getZipcode();
+
+
 
   states = ['AL', 'TX',
             'CA', 'FL'];

@@ -19,8 +19,35 @@ router.post("/clientForm", (req, res, next) => {
   });
 });
 
+router.post("/setCity", (req, res, next) => {
+
+  ClientProfile.findOne({ email: req.body.email }).then(documents => {
+    res.status(200).json({
+      city: documents.city
+    });
+  });
+});
+
+router.post("/setZipcode", (req, res, next) => {
+
+  ClientProfile.findOne({ email: req.body.email }).then(documents => {
+    res.status(200).json({
+      zipcode: documents.zipcode
+    });
+  });
+});
+
+router.post("/setName", (req, res, next) => {
+
+  ClientProfile.findOne({ email: req.body.email }).then(documents => {
+    res.status(200).json({
+      name: documents.name
+    });
+  });
+});
+
 router.post("/setState", (req, res, next) => {
-  
+
   ClientProfile.findOne({ email: req.body.email }).then(documents => {
     res.status(200).json({
       state: documents.state

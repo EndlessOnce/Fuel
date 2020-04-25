@@ -47,4 +47,12 @@
 </div>
 <button type = "submit" mat-raised-button color="accent" class="btn btn-default" [disabled] = "!clientForm.form.valid" >Complete Registration</button>
     </form>
+    <hr>
+    <div class="row" *ngIf="submitted">
+      <p>Full Name: {{ userName }} </p>
+      <p>Address:  {{ userAddress }} </p>
+      <p>City: {{ userCity }}</p>
+      <p>State: {{ userCity }} </p>
+      <p>Zipcode: {{ userZipcode }} </p>
+    </div>
     </div>

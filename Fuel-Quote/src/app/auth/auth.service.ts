@@ -16,6 +16,9 @@ export class AuthService {
   private userPass: string;
   private userState: string;
   private userHistory: string;
+  private userCity: string;
+  private userName: string;
+  private userZipcode: string;
   private userAddress: string[] = [];
 
   constructor(private http: HttpClient, private router: Router) {}
@@ -38,6 +41,53 @@ export class AuthService {
   getEmail()
   {
     return this.userEmail;
+  }
+
+  setCity()
+  {
+
+    const clientModel: ClientModel = {email: this.userEmail, name: "0", address: "0", city: "0", state: "0", zipcode: "0", addressAlt: "0"};
+    this.http.post<{state: string}>("http://localhost:3000/api/client/setCity", clientModel)
+    .subscribe(response => {
+      this.userCity = response.state;
+    });
+  }
+
+  getCity()
+  {
+    return this.userCity;
+
+  }
+
+  setName()
+  {
+
+    const clientModel: ClientModel = {email: this.userEmail, name: "0", address: "0", city: "0", state: "0", zipcode: "0", addressAlt: "0"};
+    this.http.post<{state: string}>("http://localhost:3000/api/client/setCity", clientModel)
+    .subscribe(response => {
+      this.userName = response.state;
+    });
+  }
+
+  getName()
+  {
+    return this.userName;
+
+  }
+  setZipcode()
+  {
+
+    const clientModel: ClientModel = {email: this.userEmail, name: "0", address: "0", city: "0", state: "0", zipcode: "0", addressAlt: "0"};
+    this.http.post<{state: string}>("http://localhost:3000/api/client/setCity", clientModel)
+    .subscribe(response => {
+      this.userZipcode = response.state;
+    });
+  }
+
+  getZipcode()
+  {
+    return this.userName;
+
   }
 
   setState()
