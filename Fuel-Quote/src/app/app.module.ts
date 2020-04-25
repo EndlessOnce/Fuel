@@ -21,6 +21,7 @@ import { FuelQuoteFormComponent } from './fuel-quote-form/fuel-quote-form.compon
 import { FuelQuoteHistoryComponent } from './fuel-quote-history/fuel-quote-history.component';
 import { AuthIncerceptor } from './auth/auth-interceptor';
 import {MatTableModule} from '@angular/material/table';
+import {HistService} from './services/fuelhistory.service';
 // Always add in no components into the declartaions so that Angular knows what new components there are otherwise it won't read it at all
 @NgModule({
   declarations: [
@@ -51,7 +52,9 @@ import {MatTableModule} from '@angular/material/table';
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, useClass: AuthIncerceptor, multi: true
-  }],
+  },
+  [HistService]
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
